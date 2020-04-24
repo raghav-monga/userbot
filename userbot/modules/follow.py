@@ -34,7 +34,7 @@ async def follow(follow):
     """ For .follow command, check if the bot is running.  """
     await follow.edit(
                      f"`FOLLOW {DEFAULTUSER} ON` \n\n"
-                     f"[InstaGram](https://www.instagram.com/mayur_karaniya) \n\n"
+                     f"[𝙄𝙣𝙨𝙩𝙖𝙜𝙧𝙖𝙢](https://www.instagram.com/mayur_karaniya) \n\n"
                      f"[𝙁𝙖𝙘𝙚𝙗𝙤𝙤𝙠](https://www.facebook.com/mkaraniya) \n\n"
                      f"[YouTube](https://www.youtube.com/channel/UCeKQxQK7XZ3jGi3541uWATg?sub_confirmation=1) "
                      )    
