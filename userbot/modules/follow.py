@@ -36,7 +36,7 @@ async def follow(follow):
                      f"`FOLLOW {DEFAULTUSER} ON` \n\n"
                      f"[𝙄𝙣𝙨𝙩𝙖𝙜𝙧𝙖𝙢](https://www.instagram.com/mayur_karaniya) \n\n"
                      f"[𝙁𝙖𝙘𝙚𝙗𝙤𝙤𝙠](https://www.facebook.com/mkaraniya) \n\n"
-                     f"[YouTube](https://www.youtube.com/channel/UCeKQxQK7XZ3jGi3541uWATg?sub_confirmation=1) "
+                     f"[𝙔𝙤𝙪𝙩𝙪𝙗𝙚](https://www.youtube.com/channel/UCeKQxQK7XZ3jGi3541uWATg?sub_confirmation=1) "
                      )    
 
 
