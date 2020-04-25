@@ -1,8 +1,39 @@
-(C) 2019 The Raphielscape Company LLC.
+# Copyright (C) 2019 The Raphielscape Company LLC.
 #
-# Licensed (
+# Licensed under the Raphielscape Public License, Version 1.d (the "License");
+# you may not use this file except in compliance with the License.
+#
+# Port From UniBorg to UserBot by @afdulfauzan
+
+from telethon import events
+import os
+from PIL import Image
+from datetime import datetime
+from telegraph import Telegraph, upload_file, exceptions
+from userbot import (TELEGRAPH_SHORT_NAME, TEMP_DOWNLOAD_DIRECTORY, BOTLOG_CHATID, CMD_HELP, bot)
+from userbot.events import register
+
+telegraph = Telegraph()
+r = telegraph.create_account(short_name=TELEGRAPH_SHORT_NAME)
+auth_url = r["auth_url"]
+
+
+@register(outgoing=True, pattern="^.tg (media|text)$")
+async def telegraphs(graph):
+    """ For .telegraph command, upload media & text to telegraph site. """
+    if not graph.text[0].isalpha() and graph.text[0] not in ("/", "#", "@", "!"):
+        if graph.fwd_from:
+            return
+        if not os.path.isdir(TEMP_DOWNLOAD_DIRECTORY):
+            os.makedirs(TEMP_DOWNLOAD_DIRECTORY)
+        if graph.reply_to_msg_id:
+            start = datetime.now()
+            r_message = await graph.get_reply_message()
+            input_str = graph.pattern_match.group(1)
+            if input_str == "media":
+                downloaded_file_name = await bot.download_media(
                     r_message,
-                    TMP_DOWNLOAD_DIRECTORY
+                    TEMP_DOWNLOAD_DIRECTORY
                 )
                 end = datetime.now()
                 ms = (end - start).seconds
@@ -30,7 +61,7 @@
                         title_of_page = page_content
                     downloaded_file_name = await bot.download_media(
                         r_message,
-                        TMP_DOWNLOAD_DIRECTORY
+                        TEMP_DOWNLOAD_DIRECTORY
                     )
                     m_list = None
                     with open(downloaded_file_name, "rb") as fd:
@@ -57,6 +88,5 @@ def resize_image(image):
 
 CMD_HELP.update({
     'telegraph': '.tg media | text\
-        \nUsage: Upload text & media on Telegraph.\
-        \nNotice: you are required to set TELEGRAPH_SHORT_NAME in Heroku vars for'
-
+        \nUsage: Upload text & media on Telegraph.'
+})
