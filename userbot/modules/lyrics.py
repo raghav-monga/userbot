@@ -20,7 +20,7 @@ async def lyrics(lyric):
         pass
     else:
         await lyric.edit("`Error: please use '-' as divider for <artist> and <song>`\n"
-                         "eg: `Nicki Minaj - Super Bass`")
+
         return
 
     if GENIUS is None:
@@ -33,7 +33,7 @@ async def lyrics(lyric):
             artist = args[0].strip(' ')
             song = args[1].strip(' ')
         except Exception:
-            await lyric.edit("`LMAO please provide artist and song names`")
+            await lys`")
             return
 
     if len(args) < 1:
@@ -53,7 +53,7 @@ async def lyrics(lyric):
     if len(songs.lyrics) > 4096:
         await lyric.edit("`Lyrics is too big, view the file to see it.`")
         with open("lyrics.txt", "w+") as f:
-            f.write(f"Search query: \n{artist} - {song}\n\n{songs.lyrics}")
+ query: \n{artist} - {song}\n\n{songs.lyrics}")
         await lyric.client.send_file(
             lyric.chat_id,
             "lyrics.txt",
@@ -61,8 +61,8 @@ async def lyrics(lyric):
             )
         os.remove("lyrics.txt")
     else:
-        await lyric.edit(f"**Search query**: \n`{artist} - {song}`\n\n```{songs.lyrics}```")
-    return
+`{artist} - {song}`\n\n```{songs.lyrics}```")
 
 
-@register(outgoing=True, pattern="^.iff$")
+
+
