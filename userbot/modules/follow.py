@@ -33,10 +33,10 @@ DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 async def follow(follow):
     """ For .follow command, check if the bot is running.  """
     await follow.edit(
-                     f"`🅵🅾🅻🅻🅾🆆 {DEFAULTUSER} ON` \n\n"
-                     f"[𝙄𝙣𝙨𝙩𝙖𝙜𝙧𝙖𝙢](https://www.instagram.com/abhinav_shinde) \n\n"
-                     f"[𝙁𝙖𝙘𝙚𝙗𝙤𝙤𝙠](https://www.facebook.com/abhinavshinde 97) \n\n"
-                     f"[𝙔𝙤𝙪𝙩𝙪𝙗𝙚](https://www.youtube.com/AbhinaeShinde) "
+                     f"`𝙁𝙤𝙡𝙡𝙤𝙬 {DEFAULTUSER} ON` \n\n"
+                     f"[𝘐𝘯𝘴𝘵𝘢𝘎𝘳𝘢𝘮](https://www.instagram.com/abhinav_shinde) \n\n"
+                     f"[𝘍𝘢𝘤𝘦𝘉𝘰𝘰𝘬](https://www.facebook.com/abhinavshinde97) \n\n"
+                     f"[𝘠𝘰𝘶𝘛𝘶𝘣𝘦](https://www.youtube.com/AbhinaeShinde) "
                      )    
 
 
