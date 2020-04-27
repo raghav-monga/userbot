@@ -179,7 +179,7 @@ CMD_HELP.update({
     "nopm":
     "`.pmute`\
 \nUsage: Reply .pmute and it will mute that person in pm  \
-\n\n.`punmute`\
+\n\n`.punmute`\
 \nUsage:Reply .punmute and it will unmute that person in pm \
 "
 })
