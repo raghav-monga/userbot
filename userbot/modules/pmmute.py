@@ -1,4 +1,4 @@
-#imported from xtra-telegram by @heyworld
+#imported from xtra-telegram by @AbhinavShinde
 
 from userbot.modules.sql_helper.mute_sql import is_muted, mute, unmute
 import asyncio
