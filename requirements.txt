@@ -61,4 +61,4 @@ jotquote
 csvfaker
 pymongo[srv]
 asyncurban
-
+pytube>=9.5.1
