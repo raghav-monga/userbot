@@ -46,6 +46,8 @@ redis>=3.3.10
 beautifulsoup4>=4.8.1
 youtube-dl>=2019.9.28
 PyGithub
+PyDrive2
+pyDownload
 bs4
 covid
 base
