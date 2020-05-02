@@ -138,6 +138,7 @@ async def amireallyalive(alive):
                      f"🐍ρутнση: {python_version()} \n"
                      f"------------------------------------ \n"
                      f"👦🏻υѕєя: {DEFAULTUSER} \n"
+                     f"🔧мαιηтαιηєя: @AbhinavShinde \n"
                      )
 
 
