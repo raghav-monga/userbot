@@ -29,6 +29,7 @@ pySmartDL
 python-barcode
 python-dotenv
 pytz
+asyncurban
 PyPDF2
 patool
 qrcode
