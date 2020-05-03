@@ -3,7 +3,7 @@
 <h4 align="center">Based on RaphielGang's <a href="https://github.com/RaphielGang/Telegram-UserBot">Paperplane</a> Telegram userbot...</h4>
 <h4 align="center">...or rather, it's Paperplane + insane extras from the community.</h4>
 <p align="center"><a href="#how-to-host">How To Host</a> | <a href="#updates-and-support">Updates and Support</a> | <a href="#credits">Credits</a> | <a href="#license">License</a></p>
-<p style="text-align: center;" align="center"><a href="https://t.me/MemezByAvinashReddy"><img src="https://img.shields.io/badge/status-alpha-red?style=for-the-badge" alt="Status" /></a> <a href="https://github.com/AvinashReddy3108/PaperplaneRemix/issues"><img src="https://img.shields.io/github/issues/AvinashReddy3108/PaperplaneRemix?style=for-the-badge" alt="GitHub issues" /></a> <a href="https://github.com/AvinashReddy3108/PaperplaneRemix/network"><img src="https://img.shields.io/github/forks/abhinavshinde/OUB?style=for-the-badge" alt="GitHub forks" /></a>
+<p style="text-align: center;" align="center"><a href="https://t.me/MemezByAvinashReddy"><img src="https://img.shields.io/badge/status-alpha-red?style=for-the-badge" alt="Status" /></a> <a href="https://github.com/AvinashReddy3108/PaperplaneRemix/issues"><img src="https://img.shields.io/github/issues/AvinashReddy3108/PaperplaneRemix?style=for-the-badge" alt="GitHub issues" /></a> <a href="https://github.com/abhinavshinde/OUB/network"><img src="https://img.shields.io/github/forks/abhinavshinde/OUB?style=for-the-badge" alt="GitHub forks" /></a>
 <p align="center">&nbsp;</p>
 <h2 align="center">How To Host</h2>
 <h5 align="center">The easiest way to deploy this derpfest! is click on the button below</h5>
