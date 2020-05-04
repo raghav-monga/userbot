@@ -264,7 +264,7 @@ async def afk_on_pm(sender):
             elif apprv and sender.sender_id in USERS:
                 if USERS[sender.sender_id] % randint(2, 4) == 0:
                     if AFKREASON:
-<<<<<<< HEAD
+
                         await sender.reply(f"My Master **{DEFAULTUSER}** Is **afk since** {afk_since}.\
                             \n**Reason:** `{AFKREASON}`")
 =======
