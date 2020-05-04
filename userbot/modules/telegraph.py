@@ -87,6 +87,14 @@ def resize_image(image):
 
 
 CMD_HELP.update({
+<<<<<<< HEAD
     'telegraph': '.tg media | text\
         \nUsage: Upload text & media on Telegraph.'
+=======
+    "telegraph": ".tg media as reply to a media \
+        \n & .tg text as reply to a large text \
+        \nUsage: Upload text & media on Telegraph.\
+        \nNotice: you are required to set TELEGRAPH_SHORT_NAME in Heroku vars so that your bot remains alive \
+        \nor else your bot will die."
+>>>>>>> 17087b43f8b9e12ffebe93bed33064dac0e2de49
 })

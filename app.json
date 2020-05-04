@@ -40,7 +40,11 @@
       "description": "Get this value from https://genius.com/developers.",
       "value": "0"
     },
+<<<<<<< HEAD
     "MONGO_DB_URI": {
+=======
+    "MONGO_URI": {
+>>>>>>> 17087b43f8b9e12ffebe93bed33064dac0e2de49
             "description": "Your MongoDB Atlas URL, Get your guide from https://telegra.ph/Mongo-DB-12-24.",
             "required": true 
     },

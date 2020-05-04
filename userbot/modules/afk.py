@@ -264,8 +264,13 @@ async def afk_on_pm(sender):
             elif apprv and sender.sender_id in USERS:
                 if USERS[sender.sender_id] % randint(2, 4) == 0:
                     if AFKREASON:
+<<<<<<< HEAD
                         await sender.reply(f"My Master **{DEFAULTUSER}** Is **afk since** {afk_since}.\
                             \n**Reason:** `{AFKREASON}`")
+=======
+                        await sender.reply(f"My Master **{DEFAULTUSER}** Is {AFKREASON}.\
+                            \n**Since** `{afk_since}`")
+>>>>>>> 17087b43f8b9e12ffebe93bed33064dac0e2de49
                     else:
                         await sender.reply(f"Heya! I'm currently unavailable.Since when,you ask?For {afk_since} i guess.\n When will I be back? Soon Whenever I feel like it( ಠ ʖ̯ ಠ) \n`.` ")
                     USERS[sender.sender_id] = USERS[sender.sender_id] + 1
