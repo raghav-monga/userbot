@@ -267,7 +267,7 @@ async def afk_on_pm(sender):
 
                         await sender.reply(f"My Master **{DEFAULTUSER}** Is **afk since** {afk_since}.\
                             \n**Reason:** `{AFKREASON}`")
-=======
+
                         await sender.reply(f"My Master **{DEFAULTUSER}** Is {AFKREASON}.\
                             \n**Since** `{afk_since}`")
 >>>>>>> 17087b43f8b9e12ffebe93bed33064dac0e2de49
