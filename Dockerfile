@@ -49,7 +49,6 @@ RUN apk add --no-cache=true --update \
     sqlite \
     ffmpeg \
     w3m \
-
     libjpeg-turbo-dev \
     sqlite-dev \
     libc-dev \
@@ -91,4 +90,5 @@ COPY ./sample_config.env ./userbot.session* ./config.env* /root/userbot/
 #
 RUN pip3 install -r requirements.txt
 CMD ["python3","-m","userbot"]
+
 
