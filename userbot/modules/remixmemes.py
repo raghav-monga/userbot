@@ -1124,8 +1124,8 @@ async def _(event):
             "**Chat Message Exported To** `./Inpu/`",
             "**Chat Message Exported To** `./Inpu/homework/`",
             "**Chat Message Exported To** `./Inpu/homework/groupchat.txt`",
-            "__Legend is leaving this chat.....! Bye geys..__",
-            "__Legend is leaving this chat.....! Bye geys..__"
+            "__Legend is leaving this chat.....! Bye guys..__",
+            "__Legend is leaving this chat.....! Bye guys..__"
 
  ]
 
