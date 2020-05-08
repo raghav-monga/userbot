@@ -54,7 +54,7 @@ async def sleepybot(time):
 @register(outgoing=True, pattern="^\.shutdown$")
 async def killdabot(event):
     """ For .shutdown command, shut the bot down."""
-    await event.edit("`Goodbye *Windows XP shutdown sound*....`")
+    await event.edit("`Goodbye....`")
     if BOTLOG:
         await event.client.send_message(BOTLOG_CHATID, "#SHUTDOWN \n"
                                         "Bot shut down")
@@ -63,7 +63,7 @@ async def killdabot(event):
 
 @register(outgoing=True, pattern="^\.restart$")
 async def killdabot(event):
-    await event.edit("`BRB... *PornHub intro*`")
+    await event.edit("`BRB... Bot restarting`")
     if BOTLOG:
         await event.client.send_message(BOTLOG_CHATID, "#RESTART \n"
                                         "Bot Restarted")
@@ -85,13 +85,6 @@ async def repeat(rep):
         replyText += toBeRepeated + "\n"
 
     await rep.edit(replyText)
-
-
-@register(outgoing=True, pattern="^\.repo$")
-async def repo_is_here(wannasee):
-    """ For .repo command, just returns the repo URL. """
-    await wannasee.edit(
-        f"Click [here]({UPSTREAM_REPO_URL}) to open my userbot's repository.")
 
 
 @register(outgoing=True, pattern="^\.raw$")
@@ -135,12 +128,6 @@ CMD_HELP.update({
     ".shutdown\
 \nUsage: Sometimes you need to shut down your bot. Sometimes you just hope to\
 hear Windows XP shutdown sound... but you don't."
-})
-
-CMD_HELP.update({
-    'repo':
-    '.repo\
-\nUsage: If you are curious what makes the userbot work, this is what you need.'
 })
 
 CMD_HELP.update({
