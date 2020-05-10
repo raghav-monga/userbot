@@ -63,3 +63,7 @@ async def waifu(animu):
                             silent=True if animu.is_reply else False,
                             hide_via=True)
     await animu.delete()
+CMD_HELP.update({
+    'waifu': '.waifi text\
+        \nUsage: Upload text in Image.'
+})
