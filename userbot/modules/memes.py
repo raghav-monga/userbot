@@ -1162,7 +1162,6 @@ async def lol(e):
       await e.edit("😂\n😂\n😂\n😂\n😂😂😂😂\n\n   😂😂😂\n 😂         😂\n😂           😂\n 😂         😂\n   😂😂😂\n\n😂\n😂\n😂\n😂\n😂😂😂😂")
 
 
-
 @register(outgoing=True, pattern="^.whatsapp$")
 async def whatsapp(e): 
       """ whatsapp """ 
