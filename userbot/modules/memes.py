@@ -1,17 +1,31 @@
 # Copyright (C) 2019 The Raphielscape Company LLC.
 #
-# Licensed under the Raphielscape Public License, Version 1.c (the "License");
+# Licensed under the Raphielscape Public License, Version 1.d (the "License");
 # you may not use this file except in compliance with the License.
+#custom cmds by @heyworld to make it look more gayish
 """ Userbot module for having some fun with people. """
 
 from asyncio import sleep
 from random import choice, getrandbits, randint
 from re import sub
+from random import randint
+from os import execl
 import time
+from telethon import events
+from userbot import bot
+
+
+
 
 from collections import deque
 
 import requests
+import sys
+import os
+import io
+import html
+
+import json
 
 from cowpy import cow
 
@@ -364,14 +378,13 @@ FACEREACTS = [
 RUNS_STR = [
     "Runs to Thanos..",
     "Runs far, far away from earth..",
-    "Running faster than Bolt coz i'mma userbot !!",
+    "Running faster than Bolt coz i'mma Abhinav !!",
     "Runs to Marie..",
     "This Group is too cancerous to deal with.",
     "Cya bois",
     "Kys",
     "I go away",
     "I am just walking off, coz me is too fat.",
-    "I Fugged off!",
     "Will run for chocolate.",
     "I run because I really like food.",
     "Running...\nbecause dieting is not an option.",
@@ -458,17 +471,28 @@ HELLOSTR = [
 ]
 
 PROSTR = [
-    "`You is pro user.`",
+    "`You is pro sar.`",
      "`Pros here -_- Time to Leave`",
      "`Pros everywhere`",
      "`Pro Pro Pro ; What a tragedy`",
 ]
 
 NUBSTR = [
-    "`Only few were Pro and you join the Party`",
-    "`Only few were Pro and you join the Party`",
-    "`Only few were Pro and you join the Party`",
-    "`Only few were Pro and you join the Party`",
+    "`Haha noob trying to act pro`",
+    "`Hi Nub what'sup`",
+    "`Only i and you know that ur a noob and trying to act like pro`",
+    "`Sorry we don't appoint noobs`",
+    "`Bot rule 420 section 69 prevents me from replying to stupid nubfuks like you.`",
+]
+
+BYESTR = [
+    "`Nice talking with you`",
+    "`I've gotta go!`",
+    "`I've gotta run!`",
+    "`I've gotta split`",
+    "`I'm off!`",
+    "`Great to see you,bye`",
+    "`See you soon`",
 ]
 
 SHGS = [
@@ -901,7 +925,11 @@ async def pero(proo):
 async def noob(nubdo):
     """ Greet everyone! """
     await nubdo.edit(choice(NUBSTR))
-
+                      
+@register(outgoing=True, pattern="^.bye$")
+async def bhago(bhagobc):
+    """ Greet everyone! """
+    await bhagobc.edit(choice(BYESTR))
 
 @register(outgoing=True, pattern="^.owo(?: |$)(.*)")
 async def faces(owo):
@@ -956,9 +984,9 @@ async def metoo(hahayes):
     await hahayes.edit(choice(METOOSTR))
 
 
-@register(outgoing=True, pattern="^.Oof$")
-async def Oof(e):
-    t = "Oof"
+@register(outgoing=True, pattern="^.oof$")
+async def oof(e):
+    t = "oof"
     for j in range(16):
         t = t[:-1] + "of"
         await e.edit(t)
@@ -985,7 +1013,7 @@ async def Oem(e):
 
 @register(outgoing=True, pattern="^.10iq$")
 async def iqless(e):
-    await e.edit("♿")
+    await e.edit("you low iq idiot")
 
 
 @register(outgoing=True, pattern="^.moon$")
@@ -1073,7 +1101,7 @@ async def payf(event):
     await event.edit(pay)
 
 
-@register(outgoing=True, pattern="^.lfy (.*)")
+@register(outgoing=True, pattern="^.gi (.*)")
 async def let_me_google_that_for_you(lmgtfy_q):
     textx = await lmgtfy_q.get_reply_message()
     qry = lmgtfy_q.pattern_match.group(1)
@@ -1148,7 +1176,26 @@ async def typewriter(typew):
         await sleep(sleep_time)
         await typew.edit(old_text)
         await sleep(sleep_time)
+                      
 
+      
+                      
+@register(outgoing=True, pattern="^.lol$")
+async def lol(e):
+    await e.edit("😂\n😂\n😂\n😂\n😂😂😂😂\n\n   😂😂😂\n 😂         😂\n😂           😂\n 😂         😂\n   😂😂😂\n\n😂\n😂\n😂\n😂\n😂😂😂😂")
+
+@register(outgoing=True, pattern="^.men(?: |$)(.*)")
+async def _(event):
+    if event.fwd_from:
+        return
+    if event.reply_to_msg_id:
+        input_str = event.pattern_match.group(1)
+        reply_msg = await event.get_reply_message()
+        caption = """<a href='tg://user?id={}'>{}</a>""".format(reply_msg.from_id, input_str)
+        await event.delete()
+        await bot.send_message(event.chat_id, caption, parse_mode="HTML")
+    else:
+        await event.edit("Reply to user with `.men <your text>`")
 
 @register(outgoing=True, pattern="^.fleave$")
 async def fleave(e): 
@@ -1171,6 +1218,10 @@ CMD_HELP.update({
 \nUsage: Ok...\
 \n\n;_;\
 \nUsage: Like `-_-` but crying.\
+\n\n.lol\
+\n\n.earth\
+\nusage:type .earth\
+\nusage: Reply .lol for funny lol text\
 \n\n.cp\
 \nUsage: Copypasta the famous meme\
 \n\n.vapor\
@@ -1187,8 +1238,8 @@ CMD_HELP.update({
 \nUsage: Invoke the feeling of chaos.\
 \n\nOem\
 \nUsage: Oeeeem\
-\n\nOof\
-\nUsage: Ooooof\
+\n\noof\
+\nUsage: ooooof\
 \n\n.fp\
 \nUsage: Facepalm :P\
 \n\n.moon\
@@ -1201,6 +1252,8 @@ CMD_HELP.update({
 \nUsage: Flip a coin !!\
 \n\n.owo\
 \nUsage: UwU\
+\n\n.pro or .nub or .bye\
+\nUsage: see it yourself\
 \n\n.react\
 \nUsage: Make your userbot react to everything.\
 \n\n.slap\
@@ -1221,11 +1274,13 @@ CMD_HELP.update({
 \nUsage: Praise people!\
 \n\n.f <emoji/character>\
 \nUsage: Pay Respects.\
+\n\n.men\
+\nUsage: reply .men text and mention ur friends with custom text.\
 \n\n.bt\
 \nUsage: Believe me, you will find this useful.\
 \n\n.type\
 \nUsage: Just a small command to make your keyboard become a typewriter!\
-\n\n.lfy <query>\
+\n\n.gi <query>\
 \nUsage: Let me Google that for you real quick !!\
 \n\n.decide [Alternates: (.yes, .no, .maybe)]\
 \nUsage: Make a quick decision.\

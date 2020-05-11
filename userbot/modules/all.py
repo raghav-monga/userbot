@@ -39,5 +39,3 @@ CMD_HELP.update({
     ".all\
 \nUsage: A Plugin to tagall in the chat."
 })    
-
- 
