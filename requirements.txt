@@ -53,6 +53,7 @@ youtube-dl>=2019.9.28
 PyGithub
 PyDrive2
 pyDownload
+youtube_search
 bs4
 covid
 base
