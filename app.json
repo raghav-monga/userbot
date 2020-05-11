@@ -48,6 +48,10 @@
       "description": "Get this value from https://genius.com/developers., basically same as GENIUS_API_TOKEN.",
       "value": "0"
     },
+    "GENIUS": {
+      "description": "Get this value from https://genius.com/developers., basically same as GENIUS_API_TOKEN.",
+      "value": "0"
+    },
     "HEROKU_MEMEZ": {
       "description": "This should be True if the userbot is running on a Heroku Dyno.",
       "value": "True",

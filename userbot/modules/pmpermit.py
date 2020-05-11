@@ -17,10 +17,10 @@ from userbot.events import register
 
 # ========================= CONSTANTS ============================
 UNAPPROVED_MSG = (
-    "`HeY! You Have Entered a Forbidden place.\n\n`"
-    "`I haven't approved you to PM yet.`"
-    "`Wait for me to look in your Background, before I allow you.\n\n`"
-    "`Until then, please don't spam my PM, you'll get blocked and reported if you do so!`")
+    "HeY! You Have Entered a Forbidden place.\n\n"
+    "I haven't approved you to PM yet."
+    "Wait for me to look in your Background, before I allow you.\n\n"
+    "Until then, please don't spam my PM, you'll get blocked and reported if you do so!")
 # =================================================================
 
 
@@ -182,10 +182,10 @@ async def approvepm(apprvpm):
     try:
         approve(uid)
     except IntegrityError:
-        await apprvpm.edit("`User may already be approved.`")
+        await apprvpm.edit("`User may already be approved. Sorry for the inconvenience.`")
         return
 
-    await apprvpm.edit(f"[{name0}](tg://user?id={uid}) `approved to PM!`")
+    await apprvpm.edit(f"[{name0}](tg://user?id={uid}) `approved to PM! Have Fun!`")
 
     async for message in apprvpm.client.iter_messages(apprvpm.chat_id,
                                                       from_user='me',

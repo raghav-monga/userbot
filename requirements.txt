@@ -20,6 +20,9 @@ REPO_LINK
 heroku3>=3.4.0
 httplib2==0.15.0
 psutil
+asyncurban
+patool
+PyPDF2
 humanize
 lxml
 oauth2client
@@ -50,6 +53,7 @@ youtube-dl>=2019.9.28
 PyGithub
 PyDrive2
 pyDownload
+youtube_search
 bs4
 covid
 base

@@ -2,16 +2,13 @@
 #
 # Licensed under the Raphielscape Public License, Version 1.c (the "License");
 # you may not use this file except in compliance with the License.
-# cpin courtesy Uniborg.
 """
 Userbot module to help you manage a group
 """
 
 from asyncio import sleep
 from os import remove
-from telethon import events
-from telethon.tl import functions, types
-from platform import python_version, uname
+
 from telethon.errors import (BadRequestError, ChatAdminRequiredError,
                              ImageProcessFailedError, PhotoCropSizeSmallError,
                              UserAdminInvalidError)
@@ -659,31 +656,7 @@ async def pin(msg):
             f"CHAT: {msg.chat.title}(`{msg.chat_id}`)\n"
             f"LOUD: {not is_silent}")
 
-@register(outgoing=True, pattern="^.cpin(?: |$)(.*)")
-async def _(event):
-    if event.fwd_from:
-        return
-    silent = True
-    input_str = event.pattern_match.group(1)
-    if input_str:
-        silent = False
-    if event.message.reply_to_msg_id is not None:
-        message_id = event.message.reply_to_msg_id
-        try:
-            await bot(functions.messages.UpdatePinnedMessageRequest(
-                event.chat_id,
-                message_id,
-                silent
-            ))
-        except Exception as e:
-            await event.edit(str(e))
-        else:
-            await event.delete()
-    else:
-        await event.edit("Reply to a message to pin the message in this Channel.")
 
-
-        
 @register(outgoing=True, pattern="^.kick(?: |$)(.*)")
 async def kick(usr):
     """ For .kick command, kicks the replied/tagged person from the group. """
@@ -942,7 +915,182 @@ async def get_bots(show):
         )
         remove("botlist.txt")
 
-  
+
+@register(outgoing=True, pattern=r"^.lock ?(.*)")
+async def locks(event):
+    input_str = event.pattern_match.group(1).lower()
+    peer_id = event.chat_id
+    msg = None
+    media = None
+    sticker = None
+    gif = None
+    gamee = None
+    ainline = None
+    gpoll = None
+    adduser = None
+    cpin = None
+    changeinfo = None
+    if input_str == "msg":
+        msg = True
+        what = "messages"
+    elif input_str == "media":
+        media = True
+        what = "media"
+    elif input_str == "sticker":
+        sticker = True
+        what = "stickers"
+    elif input_str == "gif":
+        gif = True
+        what = "GIFs"
+    elif input_str == "game":
+        gamee = True
+        what = "games"
+    elif input_str == "inline":
+        ainline = True
+        what = "inline bots"
+    elif input_str == "poll":
+        gpoll = True
+        what = "polls"
+    elif input_str == "invite":
+        adduser = True
+        what = "invites"
+    elif input_str == "pin":
+        cpin = True
+        what = "pins"
+    elif input_str == "info":
+        changeinfo = True
+        what = "chat info"
+    elif input_str == "all":
+        msg = True
+        media = True
+        sticker = True
+        gif = True
+        gamee = True
+        ainline = True
+        gpoll = True
+        adduser = True
+        cpin = True
+        changeinfo = True
+        what = "everything"
+    else:
+        if not input_str:
+            await event.edit("`I can't lock nothing !!`")
+            return
+        else:
+            await event.edit(f"`Invalid lock type:` {input_str}")
+            return
+
+    lock_rights = ChatBannedRights(
+        until_date=None,
+        send_messages=msg,
+        send_media=media,
+        send_stickers=sticker,
+        send_gifs=gif,
+        send_games=gamee,
+        send_inline=ainline,
+        send_polls=gpoll,
+        invite_users=adduser,
+        pin_messages=cpin,
+        change_info=changeinfo,
+    )
+    try:
+        await event.client(
+            EditChatDefaultBannedRightsRequest(peer=peer_id,
+                                               banned_rights=lock_rights))
+        await event.edit(f"`Locked {what} for this chat !!`")
+    except BaseException as e:
+        await event.edit(
+            f"`Do I have proper rights for that ??`\n**Error:** {str(e)}")
+        return
+
+
+@register(outgoing=True, pattern=r"^.unlock ?(.*)")
+async def rem_locks(event):
+    input_str = event.pattern_match.group(1).lower()
+    peer_id = event.chat_id
+    msg = None
+    media = None
+    sticker = None
+    gif = None
+    gamee = None
+    ainline = None
+    gpoll = None
+    adduser = None
+    cpin = None
+    changeinfo = None
+    if input_str == "msg":
+        msg = False
+        what = "messages"
+    elif input_str == "media":
+        media = False
+        what = "media"
+    elif input_str == "sticker":
+        sticker = False
+        what = "stickers"
+    elif input_str == "gif":
+        gif = False
+        what = "GIFs"
+    elif input_str == "game":
+        gamee = False
+        what = "games"
+    elif input_str == "inline":
+        ainline = False
+        what = "inline bots"
+    elif input_str == "poll":
+        gpoll = False
+        what = "polls"
+    elif input_str == "invite":
+        adduser = False
+        what = "invites"
+    elif input_str == "pin":
+        cpin = False
+        what = "pins"
+    elif input_str == "info":
+        changeinfo = False
+        what = "chat info"
+    elif input_str == "all":
+        msg = False
+        media = False
+        sticker = False
+        gif = False
+        gamee = False
+        ainline = False
+        gpoll = False
+        adduser = False
+        cpin = False
+        changeinfo = False
+        what = "everything"
+    else:
+        if not input_str:
+            await event.edit("`I can't unlock nothing !!`")
+            return
+        else:
+            await event.edit(f"`Invalid unlock type:` {input_str}")
+            return
+
+    unlock_rights = ChatBannedRights(
+        until_date=None,
+        send_messages=msg,
+        send_media=media,
+        send_stickers=sticker,
+        send_gifs=gif,
+        send_games=gamee,
+        send_inline=ainline,
+        send_polls=gpoll,
+        invite_users=adduser,
+        pin_messages=cpin,
+        change_info=changeinfo,
+    )
+    try:
+        await event.client(
+            EditChatDefaultBannedRightsRequest(peer=peer_id,
+                                               banned_rights=unlock_rights))
+        await event.edit(f"`Unlocked {what} for this chat !!`")
+    except BaseException as e:
+        await event.edit(
+            f"`Do I have proper rights for that ??`\n**Error:** {str(e)}")
+        return
+
 
 CMD_HELP.update({
     "admin":
@@ -968,10 +1116,6 @@ CMD_HELP.update({
 \nUsage: Retrieves a list of admins in the chat.\
 \n\n.bots\
 \nUsage: Retrieves a list of bots in the chat.\
-\n\n.pin <reply/tag>\
-\nUsage: pins the replied/tagged message on the top the chat silently.\
-\n\n.cpin <reply/tag>\
-\nUsage: pins the replied/tagged message on the top the chat LOUDLY.\
 \n\n.users or .users <name of member>\
 \nUsage: Retrieves all (or queried) users in the chat.\
 \n\n.setgppic <reply to image>\
