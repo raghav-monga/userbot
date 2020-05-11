@@ -436,7 +436,7 @@ async def gdrive_search(http, search_query):
         except Exception as e:
             res += str(e)
             break
-    msg = f"**Google Drive Query**:\n`{search_query}`\n\n**Results**\n\n{res}"
+    msg = f"**Google Drive Query**:\n{search_query}\n\n**Results**\n\n{res}"
     return msg
 
 

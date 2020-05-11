@@ -132,6 +132,7 @@ async def pipcheck(pip):
 @register(outgoing=True, pattern="^.alive$")
 async def amireallyalive(alive):
     """ For .alive command, check if the bot is running.  """
+
     await alive.edit(
                      "`I am alive and running Senpai.` \n"
                      "`I can't die. System is Online.........` \n"
@@ -140,8 +141,6 @@ async def amireallyalive(alive):
                      f"------------------------------------ \n"
                      f"Senpai: {DEFAULTUSER} \n"
                      )
-
-
 
 @register(outgoing=True, pattern="^.aliveu")
 async def amireallyaliveuser(username):

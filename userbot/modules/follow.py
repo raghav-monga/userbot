@@ -33,11 +33,11 @@ DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 async def follow(follow):
     """ For .follow command, check if the bot is running.  """
     await follow.edit(
-                     f"`FOLLOW {DEFAULTUSER} ON` \n\n"
-                     f"[InstaGram](https://www.instagram.com/mayur_karaniya) \n\n"
-                     f"[FaceBook](https://www.facebook.com/mkaraniya) \n\n"
-                     f"[YouTube](https://www.youtube.com/channel/UCeKQxQK7XZ3jGi3541uWATg?sub_confirmation=1) "
-                     )    
+                     f"**FOLLOW Priest ON** \n\n"
+                     f"[YouTube](https://www.youtube.com/channel/UCcUjVmKMldH3rvhygFaJVMw) \n\n"
+                     f"[Telegram](@priest1966) \n\n"
+                     f"[Github](https://github.com/priest1966/OpenUserBot) "
+                     )     
 
 
 
