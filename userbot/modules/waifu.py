@@ -47,7 +47,7 @@ def deEmojify(inputString: str) -> str:
 
 async def waifu(animu):
 #"""Generate random waifu sticker with the text!"""
-     
+
     text = animu.pattern_match.group(1)
     if not text:
         if animu.is_reply:
@@ -55,7 +55,7 @@ async def waifu(animu):
         else:
             await animu.answer("`No text given, hence the waifu ran away.`")
             return
-    animus = [6, 8, 12, 20, 30, 32, 33, 38, 40, 41, 42, 51, 58, 59]
+    animus = [1, 3, 7, 9, 13, 22, 34, 35, 36, 37, 43, 44, 45, 52, 53, 55]
     sticcers = await bot.inline_query(
         "stickerizerbot", f"#{random.choice(animus)}{(deEmojify(text))}")
     await sticcers[0].click(animu.chat_id,
@@ -63,7 +63,9 @@ async def waifu(animu):
                             silent=True if animu.is_reply else False,
                             hide_via=True)
     await animu.delete()
-CMD_HELP.update({
-    'waifu': '.waifi text\
-        \nUsage: Upload text in Image.'
+
+
+    CMD_HELP.update({
+    'waifu':
+    "enjoy your text with anime."
 })
