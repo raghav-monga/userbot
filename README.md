@@ -48,7 +48,7 @@ Thanks for all :
 * [DevPatel](https://github.com/Devp73) - OpenUserBot
 * [HeyWorld](https://github.com/sahyam2019) - oub-remix
 
-and many more people who aren't mentioned here, but may be found in [Contributors](https://github.com/sahyam2019/oub-remix/graphs/contributors).
+and many more people who aren't mentioned here, but may be found in [Contributors](https://github.com/abhinavshinde/OUB/graphs/contributors).
 
 ## License
 
