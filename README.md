@@ -6,7 +6,7 @@
 <p style="text-align: center;" align="center"><a href="https://github.com/abhinavshinde/OUB/network"><img src="https://img.shields.io/github/forks/abhinavshinde/OUB?style=for-the-badge" alt="GitHub forks" /></a></p>
 <p align="center">&nbsp;</p>
 <h2 align="center">How To Host</h2>
-<h5 align="center">The easiest way to deploy this derpfest! is click on the button below</h5>
+<h5 align="center">The easiest way to deploy this USERBOT! is click on the button below</h5>
 <p align="center"><a href="https://heroku.com/deploy?template=https://github.com/abhinavshinde/OUB/tree/sql-extended"> <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy to Heroku" /</a></p>
 <p align="center">&nbsp;</p>
 <h2 align="center">Credits</h2>
