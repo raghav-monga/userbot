@@ -203,7 +203,7 @@ CMD_HELP.update({
 \n\n`.regexninja` on/off\
 \nUsage: Globally enable/disables the regex ninja module.\
 \nRegex Ninja module helps to delete the regex bot's triggering messages."
-\n`.getbot`\
+\n\n`.getbot`\
 \nUsage: Get the Bots in any chat\
 "   
 })
