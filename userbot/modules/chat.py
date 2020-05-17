@@ -8,6 +8,8 @@ from asyncio import sleep
 from userbot import CMD_HELP, BOTLOG, BOTLOG_CHATID, bot
 from userbot.events import register
 from userbot.modules.admin import get_user_from_event
+from telethon.utils import pack_bot_file_id 
+from telethon.tl.types import ChannelParticipantAdmin, ChannelParticipantsBots
 
 
 @register(outgoing=True, pattern="^.userid$")
@@ -152,6 +154,34 @@ async def sedNinjaToggle(event):
         await event.edit("`Successfully disabled ninja mode for Regexbot.`")
         await sleep(1)
         await event.delete()
+        
+@register(outgoing=True, pattern="^.getbot(?: |$)(.*)")
+async def _(event):
+    if event.fwd_from:
+        return
+    mentions = "**Bots in this Channel**: \n"
+    input_str = event.pattern_match.group(1)
+    to_write_chat = await event.get_input_chat()
+    chat = None
+    if not input_str:
+        chat = to_write_chat
+    else:
+        mentions = "Bots in {} channel: \n".format(input_str)
+        try:
+            chat = await bot.get_entity(input_str)
+        except Exception as e:
+            await event.edit(str(e))
+            return None
+    try:
+        async for x in bot.iter_participants(chat, filter=ChannelParticipantsBots):
+            if isinstance(x.participant, ChannelParticipantAdmin):
+                mentions += "\n ⚜️ [{}](tg://user?id={}) `{}`".format(x.first_name, x.id, x.id)
+            else:
+                mentions += "\n [{}](tg://user?id={}) `{}`".format(x.first_name, x.id, x.id)
+    except Exception as e:
+        mentions += " " + str(e) + "\n"
+    await event.edit(mentions)
+    
 
 
 CMD_HELP.update({
@@ -172,5 +202,7 @@ CMD_HELP.update({
 \nUsage: Generate a permanent link to the user's profile with optional custom text.\
 \n\n`.regexninja` on/off\
 \nUsage: Globally enable/disables the regex ninja module.\
-\nRegex Ninja module helps to delete the regex bot's triggering messages."
+\nRegex Ninja module helps to delete the regex bot's triggering messages.\
+\n\n`.getbot`\
+\nUsage: Get the Bots in any chat."
 })
