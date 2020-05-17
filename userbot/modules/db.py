@@ -35,11 +35,11 @@ async def amireallydbs(dbs):
     await dbs.edit("`"
                      f"User: {DEFAULTUSER} \n"
                      f"Database status: {db}\n"
-                     f"OpenUserBot Version: v7.7.7"
+                     f"OUB-REMIX: v2.0"
                      "`")
                      
                      
                      
 CMD_HELP.update(
-    {"db": ".dbs\n"
+    {"db": "`.dbs`\n"
      "Usage: Shows database related info."})

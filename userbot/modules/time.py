@@ -1,6 +1,6 @@
 # Copyright (C) 2019 The Raphielscape Company LLC.
 #
-# Licensed under the Raphielscape Public License, Version 1.c (the "License");
+# Licensed under the Raphielscape Public License, Version 1.d (the "License");
 # you may not use this file except in compliance with the License.
 #
 """ Userbot module for getting the date
@@ -169,14 +169,14 @@ async def date_func(dat):
 
 CMD_HELP.update({
     "time":
-    ".time <country name/code> <timezone number>"
+    "`.time` <country name/code> <timezone number>"
     "\nUsage: Get the time of a country. If a country has "
     "multiple timezones, it will list all of them "
     "and let you select one."
 })
 CMD_HELP.update({
     "date":
-    ".date <country name/code> <timezone number>"
+    "`.date` <country name/code> <timezone number>"
     "\nUsage: Get the date of a country. If a country has "
     "multiple timezones, it will list all of them "
     "and let you select one."

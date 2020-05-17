@@ -1,6 +1,6 @@
-# Copyright (C) 2019 The Raphielscape Company LLC.
+#Copyright (C) 2019 The Raphielscape Company LLC.
 #
-# Licensed under the Raphielscape Public License, Version 1.c (the "License");
+# Licensed under the Raphielscape Public License, Version 1.d (the "License");
 # you may not use this file except in compliance with the License.
 #
 # thanks to penn5 for bug fixing
@@ -39,6 +39,7 @@ async def sysdetails(sysd):
 
             await sysd.edit("`" + result + "`")
         except FileNotFoundError:
+
             await sysd.edit("`Hella install neofetch first kthx`")
 
 
@@ -77,11 +78,11 @@ async def bot_ver(event):
                              "` \n"
                              "`Revision: "
                              f"{revout}"
-                             "` \n"
-                             "`OpenUserBot Version: 7.7.7`")
+                             "`")
         else:
             await event.edit(
-                "Shame that you don't have Git, you're running v1.0 anyway!")
+                "Shame that you don't have git, you're running - 'v2.0' anyway!"
+            )
 
 
 @register(outgoing=True, pattern="^.pip(?: |$)(.*)")
@@ -117,24 +118,23 @@ async def pipcheck(pip):
                     remove("output.txt")
                     return
                 await pip.edit("**Query: **\n`"
-                               f"{invokepip}"
+                               f"pip3 search {pipmodule}"
                                "`\n**Result: **\n`"
                                f"{pipout}"
                                "`")
             else:
                 await pip.edit("**Query: **\n`"
-                               f"{invokepip}"
+                               f"pip3 search {pipmodule}"
                                "`\n**Result: **\n`No Result Returned/False`")
         else:
-            await pip.edit("`Use .help pip to see an example`")
-            
+            await pip.edit("`Use .help system to see an example`")
 
 @register(outgoing=True, pattern="^.alive$")
 async def amireallyalive(alive):
     """ For .alive command, check if the bot is running.  """
 
     await alive.edit(
-                     "`I am alive and running Senpai.` \n"
+                     "`Touka is alive and running Senpai.` \n"
                      "`I can't die. System is Online.........` \n"
                      f"Telethon version: {version.__version__} \n"
                      f"Python: {python_version()} \n"
@@ -146,14 +146,13 @@ async def amireallyalive(alive):
 async def amireallyaliveuser(username):
     """ For .aliveu command, change the username in the .alive command. """
     message = username.text
-    output = '.aliveu [new user without brackets] nor can it be empty'
+    output = '.aliveu [new user wit hout brackets] nor can it be empty'
     if not (message == '.aliveu' or message[7:8] != ' '):
         newuser = message[8:]
         global DEFAULTUSER
         DEFAULTUSER = newuser
         output = 'Successfully changed user to ' + newuser + '!'
     await username.edit("`" f"{output}" "`")
-
 
 @register(outgoing=True, pattern="^.resetalive$")
 async def amireallyalivereset(ureset):
@@ -163,20 +162,18 @@ async def amireallyalivereset(ureset):
     await ureset.edit("`" "Successfully reset user for alive!" "`")
 
 
-CMD_HELP.update(
-    {"sysd": ".sysd\
-    \nUsage: Shows system information using neofetch."})
-CMD_HELP.update({"botver": ".botver\
-    \nUsage: Shows the userbot version."})
-CMD_HELP.update(
-    {"pip": ".pip <module(s)>\
-    \nUsage: Does a search of pip modules(s)."})
 CMD_HELP.update({
-    "alive":
-    ".alive\
-    \nUsage: Type .alive to see wether your bot is working or not.\
-    \n\n.aliveu <text>\
-    \nUsage: Changes the 'user' in alive to the text you want.\
-    \n\n.resetalive\
-    \nUsage: Resets the user to default."
-})
+    "system":
+    "`.sysd`\
+\nUsage: Shows system information using neofetch.\
+\n\n`.botver`\
+\nUsage: Shows the userbot version.\
+\n\n`.pip` <module(s)>\
+\nUsage: Does a search of pip modules(s).\
+\n\n`.alive`\
+\nUsage: Type .alive to see wether your bot is working or not.\
+\n\n`.aliveu` <text>\
+\nUsage: Changes the 'user' in alive to the text you want.\
+\n\n`.resetalive`\
+\nUsage: Resets the user to default."
+})  

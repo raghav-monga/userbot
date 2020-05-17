@@ -1,6 +1,6 @@
 # Copyright (C) 2019 The Raphielscape Company LLC.
 #
-# Licensed under the Raphielscape Public License, Version 1.c (the "License");
+# Licensed under the Raphielscape Public License, Version 1.d (the "License");
 # you may not use this file except in compliance with the License.
 #
 """ Userbot module for executing code and terminal commands from Telegram. """
@@ -189,8 +189,8 @@ async def terminal_runner(term):
         )
 
 
-CMD_HELP.update({"eval": ".eval 2 + 3\nUsage: Evalute mini-expressions."})
+CMD_HELP.update({"eval": "`.eval` 2 + 3\nUsage: Evalute mini-expressions."})
 CMD_HELP.update(
-    {"exec": ".exec print('hello')\nUsage: Execute small python scripts."})
+    {"exec": "`.exec` print('hello')\nUsage: Execute small python scripts."})
 CMD_HELP.update(
-    {"term": ".term ls\nUsage: Run bash commands and scripts on your server."})
+    {"term": "`.term` ls\nUsage: Run bash commands and scripts on your server."})

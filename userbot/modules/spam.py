@@ -1,6 +1,6 @@
 # Copyright (C) 2019 The Raphielscape Company LLC.
 #
-# Licensed under the Raphielscape Public License, Version 1.c (the "License");
+# Licensed under the Raphielscape Public License, Version 1.d (the "License");
 # you may not use this file except in compliance with the License.
 
 import asyncio
@@ -79,15 +79,15 @@ async def spammer(e):
 
 CMD_HELP.update({
     "spam":
-    ".cspam <text>\
+    "`.cspam` <text>\
 \nUsage: Spam the text letter by letter.\
-\n\n.spam <count> <text>\
+\n\n`.spam` <count> <text>\
 \nUsage: Floods text in the chat !!\
-\n\n.wspam <text>\
+\n\n`.wspam` <text>\
 \nUsage: Spam the text word by word.\
-\n\n.picspam <count> <link to image/gif>\
+\n\n`.picspam` <count> <link to image/gif>\
 \nUsage: As if text spam was not enough !!\
-\n\n.delayspam <delay> <count> <text>\
-\nUsage: .bigspam but with custom delay.\
+\n\n`.delayspam` <delay> <count> <text>\
+\nUsage: `.bigspam` but with custom delay.\
 \n\n\nNOTE : Spam at your own risk !!"
 })

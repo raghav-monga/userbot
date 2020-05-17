@@ -1,6 +1,6 @@
 # Copyright (C) 2019 The Raphielscape Company LLC.
 #
-# Licensed under the Raphielscape Public License, Version 1.c (the "License");
+# Licensed under the Raphielscape Public License, Version 1.d (the "License");
 # you may not use this file except in compliance with the License.
 #
 ''' A module for helping ban group join spammers. '''
@@ -159,7 +159,7 @@ async def ANTI_SPAMBOT(welcm):
                             await welcm.reply(
                                 "@admins\n"
                                 "`ANTI SPAMBOT DETECTOR!\n"
-                                "THIS USER MATCHES MY ALGORITHMS AS A SPAMBOT!`"
+                                "THIS USER SEEMS A SPAMMER AND MATCHES MY PRO BOT'S ALGORITHM. @admins check it!`"
                                 f"REASON: {reason}")
                             kicked = False
                             reported = True

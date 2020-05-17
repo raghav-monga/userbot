@@ -13,6 +13,8 @@ import asyncio
 import shutil
 from bs4 import BeautifulSoup
 import re
+import emoji
+from googletrans import Translator
 from time import sleep
 from html import unescape
 from re import findall
@@ -42,7 +44,7 @@ from asyncio import sleep
 from userbot import CMD_HELP, BOTLOG, BOTLOG_CHATID, YOUTUBE_API_KEY, CHROME_DRIVER, GOOGLE_CHROME_BIN, bot
 from userbot.events import register
 from telethon.tl.types import DocumentAttributeAudio
-from userbot.modules.upload_download import progress, humanbytes, time_formatter
+from userbot.utils import progress, humanbytes, time_formatter
 from userbot.google_images_download import googleimagesdownload
 import subprocess
 from datetime import datetime
@@ -60,7 +62,7 @@ async def setlang(prog):
     CARBONLANG = prog.pattern_match.group(1)
     await prog.edit(f"Language for carbon.now.sh set to {CARBONLANG}")
 
-@register(outgoing=True, pattern="^.carbon")
+@register(outgoing=True, pattern="^.karbon")
 async def carbon_api(e):
     """ A Wrapper for carbon.now.sh """
     await e.edit("`Processing..`")
@@ -414,37 +416,41 @@ async def imdb(e):
     except IndexError:
         await e.edit("Plox enter **Valid movie name** kthx")
 
-
-@register(outgoing=True, pattern=r"^.trt(?: |$)([\s\S]*)")
-async def translateme(trans):
-    """ For .trt command, translate the given text using Google Translate. """
-    translator = Translator()
-    textx = await trans.get_reply_message()
-    message = trans.pattern_match.group(1)
-    if message:
-        pass
-    elif textx:
-        message = textx.text
+@register(outgoing=True, pattern="^.tr(?: |$)(.*)")
+async def _(event):
+    if event.fwd_from:
+        return
+    if "trim" in event.raw_text:
+        # https://t.me/c/1220993104/192075
+        return
+    input_str = event.pattern_match.group(1)
+    if event.reply_to_msg_id:
+        previous_message = await event.get_reply_message()
+        text = previous_message.message
+        lan = input_str or "ml"
+    elif "|" in input_str:
+        lan, text = input_str.split("|")
     else:
-        await trans.edit("`Give a text or reply to a message to translate!`")
+        await event.edit("`.tr LanguageCode` as reply to a message")
         return
-
+    text = emoji.demojize(text.strip())
+    lan = lan.strip()
+    translator = Translator()
     try:
-        reply_text = translator.translate(deEmojify(message), dest=TRT_LANG)
-    except ValueError:
-        await trans.edit("Invalid destination language.")
-        return
-
-    source_lan = LANGUAGES[f'{reply_text.src.lower()}']
-    transl_lan = LANGUAGES[f'{reply_text.dest.lower()}']
-    reply_text = f"From **{source_lan.title()}**\nTo **{transl_lan.title()}:**\n\n{reply_text.text}"
-
-    await trans.edit(reply_text)
-    if BOTLOG:
-        await trans.client.send_message(
-            BOTLOG_CHATID,
-            f"Translated some {source_lan.title()} stuff to {transl_lan.title()} just now.",
+        translated = translator.translate(text, dest=lan)
+        after_tr_text = translated.text
+        # TODO: emojify the :
+        # either here, or before translation
+        output_str = """**TRANSLATED** from {} to {}
+{}""".format(
+            translated.src,
+            lan,
+            after_tr_text
         )
+        await event.edit(output_str)
+    except Exception as exc:
+        await event.edit(str(exc))
+
 
 
 @register(pattern=".lang (trt|tts) (.*)", outgoing=True)
@@ -688,45 +694,27 @@ def deEmojify(inputString):
 
 
 CMD_HELP.update({
-    'img':
-    '.img <search_query>\
-        \nUsage: Does an image search on Google and shows 5 images.'
-})
-CMD_HELP.update({
-    'currency':
-    '.currency <amount> <from> <to>\
-        \nUsage: Converts various currencies for you.'
-})
-CMD_HELP.update({
-    'carbon':
-    '.carbon <text> [or reply]\
-        \nUsage: Beautify your code using carbon.now.sh\nUse .crblang <text> to set language for your code.'
-})
-CMD_HELP.update(
-    {'google': '.google <query>\
-        \nUsage: Does a search on Google.'})
-CMD_HELP.update(
-    {'wiki': '.wiki <query>\
-        \nUsage: Does a search on Wikipedia.'})
-CMD_HELP.update(
-    {'ud': '.ud <query>\
-        \nUsage: Does a search on Urban Dictionary.'})
-CMD_HELP.update({
-    'tts':
-    '.tts <text> [or reply]\
-        \nUsage: Translates text to speech for the language which is set.\nUse .lang tts <language code> to set language for tts. (Default is English.)'
-})
-CMD_HELP.update({
-    'trt':
-    '.trt <text> [or reply]\
-        \nUsage: Translates text to the language which is set.\nUse .lang trt <language code> to set language for trt. (Default is English)'
-})
-CMD_HELP.update({'yt': '.yt <text>\
-        \nUsage: Does a YouTube search.'})
-CMD_HELP.update(
-    {"imdb": ".imdb <movie-name>\nShows movie info and other stuff."})
-CMD_HELP.update({
-    'rip':
-    '.ripaudio <url> or ripvideo <url>\
-        \nUsage: Download videos and songs from YouTube (and [many other sites](https://ytdl-org.github.io/youtube-dl/supportedsites.html)).'
-})
+    "scrappers":
+    "`.img` <search_query>\
+\nUsage: Does an image search on Google and shows 5 images.\
+\n\n`.currency` <amount> <from> <to>\
+\nUsage: Converts various currencies for you.\
+\n\n`.carbon` <text> [or reply]\
+\nUsage: Beautify your code using carbon.now.sh\nUse .crblang <text> to set language for your code.\
+\n\n`.google` <query>\
+\nUsage: Does a search on Google.\
+\n\n`.wiki` <query>\
+\nUsage: Does a search on Wikipedia.\
+\n\n`.ud` <query>\
+\nUsage: Usage: Does a search on Urban Dictionary.\
+\n\n`.tts` <text> [or reply]\
+\nUsage:Translates text to speech for the language which is set.\nUse .lang tts <language code> to set language for tts. (Default is English.)\
+\n\n`.trt` <text> [or reply]\
+\nUsage: Translates text to the language which is set.\nUse .lang trt <language code> to set language for trt. (Default is English)\
+\n\n`.yt` <text>\
+\nUsage: Does a YouTube search.\
+\n\n`.imdb` <movie-name>\
+\nUsage:Shows movie info and other stuff.\
+\n\n`.ripaudio` <url> or ripvideo <url>\
+\nUsage: Download videos and songs from YouTube (and [many other sites](https://ytdl-org.github.io/youtube-dl/supportedsites.html))."
+})  

@@ -1,6 +1,6 @@
 # Copyright (C) 2019 The Raphielscape Company LLC.
 #
-# Licensed under the Raphielscape Public License, Version 1.c (the "License");
+# Licensed under the Raphielscape Public License, Version 1.d (the "License");
 # you may not use this file except in compliance with the License.
 #
 """ Userbot module for managing events.
@@ -55,6 +55,9 @@ def register(**args):
     if "insecure" in args:
         del args['insecure']
 
+    if "insecure" in args:
+        del args['insecure']
+
     if pattern:
         if not ignore_unsafe:
             args['pattern'] = pattern.replace('^.', unsafe_pattern, 1)
@@ -86,6 +89,9 @@ def register(**args):
                 await check.respond("`I don't think this is a group.`")
                 return
 
+            if check.via_bot_id and not insecure and check.out:
+                return
+
             try:
                 await func(check)
 
@@ -108,9 +114,9 @@ def register(**args):
                     date = strftime("%Y-%m-%d %H:%M:%S", gmtime())
 
                     text = "**USERBOT ERROR REPORT**\n"
-                    link = "[OUB Support Chat](https://t.me/PPE_Support)"
+                    link = "[OUB Support](https://t.me/PPE_Support)"
                     text += "If you want to, you can report it"
-                    text += f"- just forward this message to {link}.\n"
+                    text += f". Head and forward this message to {link}.\n"
                     text += "Nothing is logged except the fact of error and date\n"
 
                     ftext = "========== DISCLAIMER =========="

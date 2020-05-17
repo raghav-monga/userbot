@@ -9,7 +9,7 @@ RUN sed -e 's;^#http\(.*\)/edge/community;http\1/edge/community;g' -i /etc/apk/r
 #
 # Installing Packages
 #
-RUN apk add --no-cache=true --update \
+RUN apk add freetype-dev --no-cache=true --update \
     coreutils \
     bash \
     build-base \
@@ -41,14 +41,14 @@ RUN apk add --no-cache=true --update \
     pv \
     jq \
     wget \
-    freetype \
-    freetype-dev \
+    w3m \
+    #python \
+    #python-dev \
     python3 \
     python3-dev \
     readline-dev \
     sqlite \
     ffmpeg \
-    w3m \
     libjpeg-turbo-dev \
     sqlite-dev \
     libc-dev \
@@ -57,12 +57,12 @@ RUN apk add --no-cache=true --update \
     chromium-chromedriver \
     zlib-dev \
     jpeg 
-    #
 
 RUN curl https://cli-assets.heroku.com/install.sh
 
 RUN python3 -m ensurepip \
     && pip3 install --upgrade pip setuptools \
+    && pip3 install wheel \
     && rm -r /usr/lib/python*/ensurepip && \
     if [ ! -e /usr/bin/pip ]; then ln -s pip3 /usr/bin/pip ; fi && \
     if [[ ! -e /usr/bin/python ]]; then ln -sf /usr/bin/python3 /usr/bin/python; fi && \
@@ -73,7 +73,6 @@ RUN python3 -m ensurepip \
 
 #
 # Clone repo and prepare working directory
-#
 
 RUN git clone -b sql-extended https://github.com/Kaneki993/OpenUserBot /root/userbot
 RUN mkdir /root/userbot/.bin
