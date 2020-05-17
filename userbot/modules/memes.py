@@ -1258,37 +1258,10 @@ async def let_me_google_that_for_you(lmgtfy_q):
                       
 
 
-@register(pattern=r".type(?: |$)(.*)", outgoing=True)
-async def typewriter(typew):
-    """ Just a small command to make your keyboard become a typewriter! """
-    textx = await typew.get_reply_message()
-    message = typew.pattern_match.group(1)
-    if message:
-        pass
-    elif textx:
-        message = textx.text
-    else:
-        await typew.edit("`Give a text to type!`")
-        return
-    sleep_time = 0.03
-    typing_symbol = "|"
-    old_text = ""
-    await typew.edit(typing_symbol)
-    await sleep(sleep_time)
-    for character in message:
-        old_text = old_text + "" + character
-        typing_text = old_text + "" + typing_symbol
-        await typew.edit(typing_text)
-        await sleep(sleep_time)
-        await typew.edit(old_text)
-        await sleep(sleep_time)
                       
 
       
-                      
-@register(outgoing=True, pattern="^.lol$")
-async def lol(e):
-    await e.edit("😂\n😂\n😂\n😂\n😂😂😂😂\n\n   😂😂😂\n 😂         😂\n😂           😂\n 😂         😂\n   😂😂😂\n\n😂\n😂\n😂\n😂\n😂😂😂😂")
+                   
 
 @register(outgoing=True, pattern="^.men(?: |$)(.*)")
 async def _(event):
@@ -1381,31 +1354,15 @@ CMD_HELP.update({
 \nUsage: Ok...\
 \n\n;_;\
 \nUsage: Like `-_-` but crying.\
-<<<<<<< HEAD
-\n\n.lol\
-\n\n.earth\
-\nusage:type .earth\
-\nusage: Reply .lol for funny lol text\
-\n\n.cp\
-=======
 \n\n`.lol`\
 \n\n`.earth`\
 \nusage:type .earth\
 \nusage: Reply .lol for funny lol text\
 \n\n`.cp`\
->>>>>>> 242dcedc98f74bba53d4aebd9b9996a681de4567
 \nUsage: Copypasta the famous meme\
 \n\n`.vapor`\
 \nUsage: Vaporize everything!\
-<<<<<<< HEAD
-\n\n.fleave\
-\nUsage: fake leave chat group.\
-\n\n.lol\
-\nUsage: lol in emoji 😂.\
 \n\n.str\
-=======
-\n\n`.str`\
->>>>>>> 242dcedc98f74bba53d4aebd9b9996a681de4567
 \nUsage: Stretch it.\
 \n\n`.10iq`\
 \nUsage: You retard !!\
@@ -1413,15 +1370,9 @@ CMD_HELP.update({
 \nUsage: Invoke the feeling of chaos.\
 \n\nOem\
 \nUsage: Oeeeem\
-<<<<<<< HEAD
-\n\noof\
-\nUsage: ooooof\
-\n\n.fp\
-=======
 \n\nOof\
 \nUsage: Ooooof\
 \n\n`.fp`\
->>>>>>> 242dcedc98f74bba53d4aebd9b9996a681de4567
 \nUsage: Facepalm :P\
 \n\n`.moon`\
 \nUsage: kensar moon animation.\
@@ -1433,15 +1384,9 @@ CMD_HELP.update({
 \nUsage: Flip a coin !!\
 \n\n`.owo`\
 \nUsage: UwU\
-<<<<<<< HEAD
-\n\n.pro or .nub or .bye\
-\nUsage: see it yourself\
-\n\n.react\
-=======
 \n\n`.pro` or `.nub` or `.bye`\
 \nUsage: see it yourself\
 \n\n`.react`\
->>>>>>> 242dcedc98f74bba53d4aebd9b9996a681de4567
 \nUsage: Make your userbot react to everything.\
 \n\n`.slap`\
 \nUsage: reply to slap them with random objects !!\
@@ -1465,23 +1410,13 @@ CMD_HELP.update({
 \nUsage: Praise people!\
 \n\n`.f` <emoji/character>\
 \nUsage: Pay Respects.\
-<<<<<<< HEAD
-\n\n.men\
-\nUsage: reply .men text and mention ur friends with custom text.\
-\n\n.bt\
-=======
 \n\n`.men`\
 \nUsage: reply .men text and mention ur friends with custom text.\
 \n\n`.bt`\
->>>>>>> 242dcedc98f74bba53d4aebd9b9996a681de4567
 \nUsage: Believe me, you will find this useful.\
 \n\n`.type`\
 \nUsage: Just a small command to make your keyboard become a typewriter!\
-<<<<<<< HEAD
-\n\n.gi <query>\
-=======
 \n\n`.gi` <query>\
->>>>>>> 242dcedc98f74bba53d4aebd9b9996a681de4567
 \nUsage: Let me Google that for you real quick !!\
 \n\n`.decide` [Alternates: (.yes, .no, .maybe)]\
 \nUsage: Make a quick decision.\
