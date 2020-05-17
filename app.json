@@ -1,7 +1,7 @@
 {
-  "name": "Telegram Open User Bot",
-  "description": "[OpenUserBot] A modular Telegram userbot running on Python 3.7+ with an sqlalchemy database, which can be coupled up with Mongo DB and a Redis backend",
-  "logo": "https://telegra.ph/file/d04a1724c6dd8a957bd0e.png",
+  "name": "OPEN USERBOT REMIX",
+  "description": "[OUB-REMIX] A modular Telegram userbot running on Python 3.7+ with an sqlalchemy database, which can be coupled up with Mongo DB and a Redis backend",
+  "logo": "https://telegra.ph/file/90b4e03927ad8d90825ea.jpg",
   "keywords": [
     "telegram",
     "userbot",
@@ -9,7 +9,7 @@
     "modular",
     "productivity"
   ],
-  "repository": "https://github.com/mkaraniya/OpenUserBot",
+  "repository": "https://github.com/sahyam2019/oub-remix",
   "website": "https://telegra.ph/How-to-host-a-Telegram-Userbot-11-02",
   "success_url": "https://t.me/PPE_Support",
   "stack": "container",
@@ -36,13 +36,9 @@
       "description": "Get this value by running [python3 string_session.py] in Termux or local system.",
       "required": true
     },
-    "GENIUS_API_TOKEN": {
-      "description": "Get this value from https://genius.com/developers.",
-      "value": "0"
-    },
-    "MONGO_URI": {
-            "description": "Your MongoDB Atlas URL, Get your guide from https://telegra.ph/Mongo-DB-12-24.",
-            "required": true 
+    "GENIUS_ACCESS_TOKEN": {
+      "description": "Client Access Token from https://genius.com/api-clients.",
+      "required": false
     },
     "GENIUS": {
       "description": "Get this value from https://genius.com/developers., basically same as GENIUS_API_TOKEN.",
@@ -142,7 +138,7 @@
     },
     "TELEGRAPH_SHORT_NAME": {
       "description": "add your desired TELEGRAPH_SHORT_NAME.",
-      "value": "@Mayur_Karaniya"
+      "value": "oub-remix"
     },
     "CLEAN_WELCOME": {
       "description": "When a new person joins, the old welcome message is deleted.",
@@ -174,7 +170,7 @@
     },
     "DEFAULT_BIO": {
       "description": "Default profile bio.",
-      "value": "[PM = Report Spam] I ❤ ️@OpenUserBot",
+      "value": "[PM = Report Spam] I ❤ ️@oub-remix",
       "required": false
     },
     "ALIVE_NAME": {
@@ -186,6 +182,10 @@
       "required": false
     },
     "G_DRIVE_AUTH_TOKEN_DATA": {
+      "description": "Enter the Google Drive authentication data, as a JSON structure.",
+      "required": false
+    },
+    "G_DRIVE_DATA": {
       "description": "Enter the Google Drive authentication data, as a JSON structure.",
       "required": false
     },

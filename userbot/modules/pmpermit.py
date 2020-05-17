@@ -67,7 +67,7 @@ async def permitpm(event):
                 else:
                     COUNT_PM[event.chat_id] = COUNT_PM[event.chat_id] + 1
 
-                if COUNT_PM[event.chat_id] > 4:
+                if COUNT_PM[event.chat_id] > 2:
                     await event.respond(
                         "`Great! You were spamming my PM, which I didn't like.`\n"
                         "`You have been BLOCKED and reported as SPAM, until further notice.`"
@@ -243,7 +243,7 @@ async def blockpm(block):
     else:
         await block.client(BlockRequest(block.chat_id))
         aname = await block.client.get_entity(block.chat_id)
-        await block.edit("`You've been blocked!`")
+        await block.edit("`You've been blocked 😡!`")
         name0 = str(aname.first_name)
         uid = block.chat_id
 
@@ -268,7 +268,7 @@ async def unblockpm(unblock):
         replied_user = await unblock.client.get_entity(reply.from_id)
         name0 = str(replied_user.first_name)
         await unblock.client(UnblockRequest(replied_user.id))
-        await unblock.edit("`You have been unblocked.`")
+        await unblock.edit("`You have been unblocked 😌.`")
 
     if BOTLOG:
         await unblock.client.send_message(
@@ -281,16 +281,16 @@ async def unblockpm(unblock):
 CMD_HELP.update({
     "pmpermit":
     "\
-.approve\
+`.approve`\
 \nUsage: Approves the mentioned/replied person to PM.\
-\n\n.disapprove\
+\n\n`.disapprove`\
 \nUsage: Disapproves the mentioned/replied person to PM.\
-\n\n.block\
+\n\n`.block`\
 \nUsage: Blocks the person.\
-\n\n.unblock\
+\n\n`.unblock`\
 \nUsage: Unblocks the person so they can PM you.\
-\n\n.notifoff\
+\n\n`.notifoff`\
 \nUsage: Clears/Disables any notifications of unapproved PMs.\
-\n\n.notifon\
+\n\n`.notifon`\
 \nUsage: Allows notifications for unapproved PMs."
 })

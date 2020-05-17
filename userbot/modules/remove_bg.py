@@ -1,6 +1,6 @@
 # Copyright (C) 2019 The Raphielscape Company LLC.
 #
-# Licensed under the Raphielscape Public License, Version 1.c (the "License");
+# Licensed under the Raphielscape Public License, Version 1.d (the "License");
 # you may not use this file except in compliance with the License.
 
 # (c) Shrimadhav U K - UniBorg
@@ -98,6 +98,6 @@ async def ReTrieveURL(input_url):
 
 CMD_HELP.update({
     "rbg":
-    ".rbg <Link to Image> or reply to any image (Warning: does not work on stickers.)\
+    "`.rbg` <Link to Image> or reply to any image (Warning: does not work on stickers.)\
 \nUsage: Removes the background of images, using remove.bg API"
 })

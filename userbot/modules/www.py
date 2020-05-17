@@ -1,6 +1,6 @@
 # Copyright (C) 2019 The Raphielscape Company LLC.
 #
-# Licensed under the Raphielscape Public License, Version 1.c (the "License");
+# Licensed under the Raphielscape Public License, Version 1.d (the "License");
 # you may not use this file except in compliance with the License.
 #
 """ Userbot module containing commands related to the \
@@ -64,11 +64,9 @@ async def pingme(pong):
     duration = (end - start).microseconds / 1000
     await pong.edit("`Pong!\n%sms`" % (duration))
 
-
 CMD_HELP.update(
-    {"speed": ".speed\
-    \nUsage: Does a speedtest and shows the results."})
-
-CMD_HELP.update(
-    {"ping": ".ping\
-    \nUsage: Shows how long it takes to ping your bot."})
+    {"ping": "`.ping`\
+    \nUsage: Shows how long it takes to ping your bot.\
+    \n\n`.speed`\
+    \nUsage: Does a speedtest and shows the results."
+})
