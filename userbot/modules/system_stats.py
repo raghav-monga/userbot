@@ -133,15 +133,16 @@ async def amireallyalive(alive):
     await alive.edit(
                      
                       
-                     f"`🤖 STATUS: Working Sexy AF ✅` \n"
-                     f"Telethon version:{version.__version__} \n"
-                     f"Python version🐍:{python_version()} \n"
-                     f"`Bot Version🤘: Remix 2.0` \n"
+                     f"🤖𝔸ℙ𝕌ℕ 𝕀𝔻ℍ𝔸ℝ𝕀ℂℍ ℍ𝔸𝕀🤖 \n"
+                     f"♥️тєℓєтнση νєяѕιση: {version.__version__} \n"
+                     f"🐍ρутнση νєяѕιση: {python_version()} \n"
+                     f"🤘вσт νєяѕιση: Remix 2.0 \n"
                      f"------------------------------------ \n"
-                     
-                     f"User 👨‍🚀: {DEFAULTUSER} \n"
-                     f"Maintainer 🏄‍♂️: @heyworld"
+                     f"👦🏻υѕєя: {DEFAULTUSER} \n"
+                     f"⚙️мαιηтαιηєя: @AbhinavShinde"
                      )
+                     
+
                          
 
 
@@ -150,7 +151,7 @@ async def amireallyalive(alive):
 async def amireallyaliveuser(username):
     """ For .aliveu command, change the username in the .alive command. """
     message = username.text
-    output = '.aliveu [new user without brackets] nor can it be empty'
+    output = '.aliveu [new user wit hout brackets] nor can it be empty'
     if not (message == '.aliveu' or message[7:8] != ' '):
         newuser = message[8:]
         global DEFAULTUSER
