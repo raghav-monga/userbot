@@ -202,8 +202,7 @@ CMD_HELP.update({
 \nUsage: Generate a permanent link to the user's profile with optional custom text.\
 \n\n`.regexninja` on/off\
 \nUsage: Globally enable/disables the regex ninja module.\
-\nRegex Ninja module helps to delete the regex bot's triggering messages."
+\nRegex Ninja module helps to delete the regex bot's triggering messages.\
 \n\n`.getbot`\
-\nUsage: Get the Bots in any chat\
-"   
+\nUsage: Get the Bots in any chat."
 })
